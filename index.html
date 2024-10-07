@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>生物监测</title>
@@ -12,14 +13,24 @@
             margin: 0;
         }
 
-
         body {
-            min-block-size: 100%;
-            display: grid;
-            place-content: center;
-            /* 设置上下内边距为 30% 视口高度 */
-            padding-block: 30dvh;
+            display: flex; /* 使用flex布局 */
+            min-height: 100vh; /* 设置最小高度为视口高度 */
             background: #d5ebe1;
+        }
+
+        .left-column {
+            flex: 1; /* 左侧占据1份flex空间 */
+            padding: 20px; /* 添加一些内边距 */
+            /* 其他样式根据需要添加 */
+        }
+
+        .right-column {
+            flex: 1; /* 右侧占据1份flex空间 */
+            padding: 20px; /* 添加一些内边距 */
+            overflow-y: auto; /* 允许垂直方向上的滚动 */
+            max-height: 100vh; /* 设置最大高度为视口高度 */
+            /* 其他样式根据需要添加 */
         }
 
         @keyframes slide-fade-in {
@@ -35,7 +46,7 @@
             gap: 2rem;
             /* 自动排列 */
             grid-auto-flow: dense;
-            grid-template-columns: repeat(4, 30ch);
+            grid-template-columns: repeat(2, 30ch);
         }
 
         .card {
@@ -70,53 +81,61 @@
             height: 100%;
         }
 
-        .card:nth-of-type(4n) {
+        .card:nth-of-type(1n) {
             grid-column: span 2;
         }
 
-        .card:nth-of-type(5n) {
-            grid-column: span 2;
+        .card:nth-of-type(2n) {
+            grid-column: span 1;
         }
 
-        .card:nth-of-type(7n) {
+        .card:nth-of-type(6n) {
             grid-row: span 2;
+        }
+
+        .left-column .card {
+            margin-left: 40px; /* 向左移动20像素 */
         }
     </style>
 </head>
 
 <body>
-<div class="cards">
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./01.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./02.png"></div>
-    <div class="card"> <img src="./03.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./04.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./05.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./06.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card"> <img src="./07.png"></div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
-    <div class="card">TEXT</div>
+
+<div class="left-column">
+    <!-- 左侧内容 -->
+    <div class="cards">
+        <div class="card">man! what can i say!</div>
+
+    </div>
+    <!-- 视频元素 -->
+    <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=676186170&bvid=BV1qU4y1F73A&cid=429657756&p=1"
+            scrolling="no"
+            border="0"
+            frameborder="no"
+            framespacing="0"
+            allowfullscreen="true"
+            width="640"
+            height="360"
+            style="margin-left: 20px; margin-top: 20px;">
+
+    </iframe>
+</div>
+
+<div class="right-column">
+    <div class="cards">
+        <!-- 右侧内容，即原来的.cards内容 -->
+        <div class="card">TEXT</div>
+        <div class="card">TEXT</div>
+        <div class="card">TEXT</div>
+        <div class="card">TEXT</div>
+        <div class="card"> <img src="./photo/01.png"></div>
+        <div class="card">TEXT</div>
+        <div class="card">TEXT</div>
+        <div class="card">TEXT</div>
+        <div class="card"> <img src="./photo/01.png"></div>
+        <div class="card"> <img src="./photo/01.png"></div>
+        <div class="card">TEXT1</div>
+    </div>
 </div>
 </body>
 
